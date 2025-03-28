@@ -31,7 +31,8 @@ export default function Home() {
     <Sidebar setMediaSize={setMediaSize} setTimeRange={setTimeRange} />
   {/* </div> */}
   {/* <div className="canvas"> */}
-    <Canvas mediaSize={mediaSize} timeRange={timeRange} />
+  <Canvas mediaSize={mediaSize} setMediaSize={setMediaSize} timeRange={timeRange} />
+
   {/* </div> */}
 </div>
 
