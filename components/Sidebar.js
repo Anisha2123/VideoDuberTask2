@@ -19,8 +19,13 @@ export default function Sidebar({ setMediaSize, setTimeRange }) {
         label="Width"
         value={width}
         onChange={(val) => {
+          console.log("Sidebar - Width Changed:", val);
           setWidth(val);
-          setMediaSize((prev) => ({ ...prev, width: val }));
+          setMediaSize((prev) => {
+            const newSize = { ...prev, width: val };
+            console.log("Updated Media Size (Width):", newSize);
+            return newSize;
+          });
         }}
         min={100}
         className="sidebar-input"
@@ -30,8 +35,14 @@ export default function Sidebar({ setMediaSize, setTimeRange }) {
         label="Height"
         value={height}
         onChange={(val) => {
+          console.log("Sidebar - Height Changed:", val);
           setHeight(val);
-          setMediaSize((prev) => ({ ...prev, height: val }));
+          setMediaSize((prev) => {
+            const newSize = { ...prev, height: val };
+            console.log("Updated Media Size (Height):", newSize);
+            return newSize;
+          });
+
         }}
         min={100}
         className="sidebar-input"
@@ -41,6 +52,7 @@ export default function Sidebar({ setMediaSize, setTimeRange }) {
         label="Start Time (s)"
         value={startTime}
         onChange={(val) => {
+          console.log("Start Time Updated:", val);
           setStartTime(val);
           setTimeRange((prev) => ({ ...prev, start: val }));
         }}
@@ -52,6 +64,8 @@ export default function Sidebar({ setMediaSize, setTimeRange }) {
         label="End Time (s)"
         value={endTime}
         onChange={(val) => {
+          console.log("End Time Updated:", val);
+
           setEndTime(val);
           setTimeRange((prev) => ({ ...prev, end: val }));
         }}

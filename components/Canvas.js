@@ -17,6 +17,10 @@ export default function Canvas({ mediaSize, timeRange }) {
   const [size, setSize] = useState(mediaSize);
 
   useEffect(() => {
+    console.log("Canvas - Media Size Updated:", mediaSize);
+  }, [mediaSize]);
+
+  useEffect(() => {
     clearInterval(timerRef.current);
     setCurrentTime(0);
   }, [timeRange]);
@@ -44,6 +48,7 @@ export default function Canvas({ mediaSize, timeRange }) {
       const fileURL = URL.createObjectURL(file);
       setMedia(fileURL);
       setFileType(file.type.startsWith("video") ? "video" : "image");
+      console.log("File Uploaded:", file.name);
     }
   };
 
@@ -55,22 +60,53 @@ export default function Canvas({ mediaSize, timeRange }) {
           Play
         </Button>
         <Text mt="sm" className="canvas-timer">
-          Current Time: {currentTime}s
+          Current Time: {currentTime}
         </Text>
       </Box>
 
       {media && currentTime >= timeRange.start && currentTime <= timeRange.end && (
         <Draggable nodeRef={dragRef} bounds="parent">
           <Resizable
-            width={size.width}
-            height={size.height}
-            onResizeStop={(e, data) => setSize({ width: data.size.width, height: data.size.height })}
+            width={mediaSize.width}
+            height={mediaSize.height}
+            // onResizeStop={(e, data) => setSize({ width: data.size.width, height: data.size.height })}
+            onResizeStop={(e, data) => {}}
           >
-            <Box ref={dragRef} className="media-container" style={{ width: size.width, height: size.height }}>
-              {fileType === "image" ? (
+            {/* <Box ref={dragRef} className="media-container" style={{ width: size.width, height: size.height }}> */}
+            <Box
+              ref={dragRef}
+              style={{
+                width: mediaSize.width, // ✅ Debugging: Ensure it updates
+                height: mediaSize.height,
+                overflow: "hidden",
+                background: "black",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              {/* {fileType === "image" ? (
                 <img src={media} alt="Uploaded" className="media-content" />
               ) : (
                 <video ref={mediaRef} src={media} controls autoPlay loop className="media-content" />
+              )} */}
+              {fileType === "image" ? (
+                <img
+                  src={media}
+                  alt="Uploaded"
+                  style={{ width: "100%", height: "100%" }}
+                  onLoad={() => console.log("Image Loaded with Size:", mediaSize)}
+                />
+              ) : (
+                <video
+                  ref={mediaRef}
+                  src={media}
+                  controls
+                  autoPlay
+                  loop
+                  style={{ width: "100%", height: "100%" }}
+                  onLoadedMetadata={() => console.log("Video Loaded with Size:", mediaSize)}
+                />
               )}
             </Box>
           </Resizable>
