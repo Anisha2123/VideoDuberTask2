@@ -16,24 +16,11 @@ export default function Home() {
   const [timeRange, setTimeRange] = useState({ start: 0, end: 5 });
 
   return (
-    <Container fluid>
+    <Container fluid className="con">
       <Navbar />
-      {/* <Grid className="grid" >
-        <Grid.Col span={3}>
-          <Sidebar setMediaSize={setMediaSize} setTimeRange={setTimeRange} />
-        </Grid.Col>
-        <Grid.Col span={9}>
-          <Canvas mediaSize={mediaSize} timeRange={timeRange} />
-        </Grid.Col>
-      </Grid> */}
       <div className="grid">
-  {/* <div className="sidebar"> */}
     <Sidebar setMediaSize={setMediaSize} setTimeRange={setTimeRange} />
-  {/* </div> */}
-  {/* <div className="canvas"> */}
   <Canvas mediaSize={mediaSize} setMediaSize={setMediaSize} timeRange={timeRange} />
-
-  {/* </div> */}
 </div>
 
     </Container>

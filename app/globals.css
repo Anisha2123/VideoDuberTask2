@@ -18,7 +18,11 @@ body {
   color: #333;
   font-size: 16px;
   line-height: 1.6;
+  width: 100%;
   transition: all 0.3s ease-in-out;
+}
+.con{
+  width: 100%;
 }
 
 /* 📌 Container */
@@ -69,16 +73,21 @@ body {
 }
 
 /* Responsive Navbar */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
+  .con{
+    width: 100%;
+  }
   .navbar {
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
+    margin-bottom: 2rem;
   }
 
   .navbar-links {
     margin-top: 10px;
   }
-}
+} */
 
 
 /* 📂 Sidebar */
@@ -116,199 +125,188 @@ body {
   margin-bottom: 15px;
   color: #007bff; /* Blue Highlight */
 }
-/* Responsive Sidebar */
-@media (max-width: 768px) {
-  .sidebar {
-    /* width: 100%; */
-    height: auto;
-    box-shadow: none;
-    border-right: none;
-  }
-}
-
 /* ==============Grid=============== */
 .grid{
-  /* height: 2rem; */
   display: flex;
-  /* flex-direction: row; */
-  /* height: 100vh; */
+  flex-direction: row;
   margin: 0;
-   /* border:1px solid red; */
-   /* background-color: beige; */
+
 }
 
-
 /* Canvas Container */
-.canvas {
-  /* flex: 1; */
-  background: #f4f4f4; /* Light Background */
-  width: 100%;
+.canvas-container {
+  flex: 1;
+  height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-  /* border:10px solid blue; */
-  /* background-color: #171717; */
-}
-
-/* Controls Section */
-.canvas-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 10rem;
-  width:20rem;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.canvas-button {
-  align-self: center;
-  margin-top: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  height:2rem;
-  width:4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* padding: 1rem; */
-  border-radius: 0.5rem;
-}
-
-.canvas-button:hover {
-  background-color: #0056b3;
-}
-.upload{
-  color:#0056b3;
-  font-weight: bold;
-  cursor: pointer;
-}
-.upload:hover{
-
-  color:rgb(150, 42, 80);
-  cursor: pointer;
-}
-
-.canvas-timer {
-  font-size: 14px;
-  color: #333;
-  font-weight: bold;
-}
-
-/* Media Container */
-.media-container {
+  /* background: #ffffff; */
+  border-radius: 10px;
+  /* box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); */
+  padding: 20px;
   overflow: hidden;
-  /* background: white; */
+}
+
+/* Media Section */
+.media-wrapper {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border: 2px solid #ba1e1e; */
-  border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  padding: 5px;
+  cursor: grab;
+  transition: border 0.3s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-/* Media Content */
+.resizable-media {
+  border: 2px dashed #000;
+  padding: 5px;
+  background: #fff;
+  cursor: move;
+  transition: opacity 0.5s ease-in-out;
+}
+
 .media-content {
   width: 100%;
   height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.media-image,
+.media-video {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
   object-fit: contain;
 }
 
-/* Responsive Canvas */
-@media (max-width: 768px) {
-  .canvas-controls {
-    /* width: 90%; */
-    /* left: 5%; */
-    text-align: center;
+/* Upload & Play Controls */
+.controls-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 25rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.controls-container:hover {
+  transform: scale(1.02);
+}
+
+/* File Input */
+.file-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border 0.3s ease-in-out;
+}
+
+.file-input:hover {
+  border-color: #007bff;
+}
+
+/* Play Button */
+.play-button {
+  background: #007bff;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 10px 16px;
+  transition: background 0.3s ease-in-out;
+  border: none;
+  cursor: pointer;
+}
+
+.play-button:hover {
+  background: #0056b3;
+}
+
+/* Current Time Text */
+.current-time {
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+}
+/* 📱 Responsive Styles */
+@media (max-width: 1024px) {
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 1.5rem;
+    /* border: 1px solid red; */
+    margin-top:2rem;
   }
 
-  .canvas {
+  .sidebar input{
+     width: 100%;
+  }
+
+  .grid {
     flex-direction: column;
   }
-}
-.resizable-handle {
-  border: 2px dashed gray; /* Outline for resizing */
-  position: relative;
+
+  .controls-container {
+    width: 90%;
+  }
 }
 
-/* Resize handles */
-.resizable-handle::after {
-  content: "";
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background: gray;
-  border-radius: 50%;
-}
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;
+  }
 
-.resizable-handle:hover {
-  border-color: black;
-}
+  .navbar-links {
+    flex-direction: row;
+    width: 100%;
+    padding: 10px 0;
+  }
 
-.media-container {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  .navbar-item {
+    font-size: 14px;
+  }
 
-.media-content {
-  width: 100%;
-  height: 100%;
-}
-.canvas-container {
-  flex: 1;
-  background: #f4f4f4;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
+  .sidebar {
+    padding: 1rem;
+  }
 
-.controls {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  color: black;
-}
+  .canvas-container {
+    padding: 10px;
+  }
 
-.draggable-container {
-  position: absolute;
-  cursor: grab;
-}
+  .controls-container {
+    width: 100%;
+    padding: 10px;
+  }
 
-.resizable-handle {
-  border: 2px dashed gray;
-  position: relative;
-}
-
-.media-container {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.media-content {
-  width: 100%;
-  height: 100%;
-}
-.edit{
-  border:1px solid red;
-  position: relative;
+  .play-button {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
 }
