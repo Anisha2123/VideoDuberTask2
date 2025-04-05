@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🎬 Next.js Media Editor Web App
 
-## Getting Started
+A professional, responsive media editing canvas built using **Next.js**, **TailwindCSS**, and **Mantine UI**. This app allows users to **upload images/videos**, **resize**, **drag**, and **control playback** in a clean, modern UI.
 
-First, run the development server:
+---
+
+## 🚀 Features
+
+- 📤 Upload **image or video** files
+- 🖼️ Drag & resize media dynamically using `react-draggable` and `re-resizable`
+- ⏱️ Playback control with **timer** tracking
+- 🎯 Display media only during selected time ranges
+- 💻 Clean and responsive UI for **desktop, tablet, and mobile**
+- 🌙 Built with **Next.js App Router**, **TailwindCSS**, and **Mantine UI**
+
+---
+
+## 📁 Folder Structure  
+.
+├── app/
+│   ├── page.js          # Main page with layout
+│   └── globals.css      # Global styles
+│
+├── components/
+│   ├── Navbar.js        # Top navigation bar
+│   ├── Sidebar.js       # Media size & time range controls
+│   └── Canvas.js        # Media rendering & upload box
+│
+├── public/              # Public assets (e.g., images, favicon)
+│
+├── package.json         # Project metadata and dependencies
+└── README.md            # Project documentation
+
+
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework:** [Next.js](https://nextjs.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/) + custom CSS
+- **UI Components:** [Mantine](https://mantine.dev/)
+- **Media Tools:** `react-draggable`, `re-resizable`
+
+---
+
+## 📦 Installation
 
 ```bash
+git clone [https://github.com/your-username/your-repo.git](https://github.com/Anisha2123/VideoDuberTask2)
+cd your-repo
+npm install
+
+```
+## Usage
+```
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Navigate to http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🌐 Deployment (Vercel)
+Render- https://video-duber-task2.vercel.app/
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+📸 Screenshots
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+🙌 Author  
+Anisha Birla  
+🔗 https://www.linkedin.com/in/anishabirla/  
+📧 birlaani@gmail.com  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
