@@ -63,6 +63,8 @@ Navigate to http://localhost:3000 in your browser.
 Render- https://video-duber-task2.vercel.app/
 
 📸 Screenshots
+![image](https://github.com/user-attachments/assets/b9af7531-8d73-4eb9-b1a2-b896276f33e3)
+![video-duber-task2 vercel app_(iPhone SE)](https://github.com/user-attachments/assets/bdc92579-82e3-474a-8c4e-59bd3b21e269)
 
 
 🙌 Author  
